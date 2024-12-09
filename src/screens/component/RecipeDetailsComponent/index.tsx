@@ -16,11 +16,13 @@ const RecipeDetailsComponent: FC<RecipeDetailsComponentProps> = (props) => {
 
     const renderIngredientList = ({ item, index }: any) => {
         return (
-            <View style={{
-                flex: 1,
-                flexDirection: "row",
-                padding: 10
-            }}>
+            <View
+                testID={`ingredient-${index}`}
+                style={{
+                    flex: 1,
+                    flexDirection: "row",
+                    padding: 10
+                }}>
                 <View
                     style={{
                         width: 60,
@@ -33,6 +35,7 @@ const RecipeDetailsComponent: FC<RecipeDetailsComponentProps> = (props) => {
                     }}
                 >
                     <Image
+                        testID={`ingredient-image-${index}`}
                         source={{ uri: `https://www.themealdb.com/images/ingredients/${item.name}-Small.png` }}
                         style={{
                             height: 50,
@@ -50,6 +53,7 @@ const RecipeDetailsComponent: FC<RecipeDetailsComponentProps> = (props) => {
                     }}
                 >
                     <Text
+                        testID={`ingredient-qty-${index}`}
                         style={{
                             fontSize: 18,
                             fontWeight: "500",
@@ -59,6 +63,7 @@ const RecipeDetailsComponent: FC<RecipeDetailsComponentProps> = (props) => {
                         {item.qty}
                     </Text>
                     <Text
+                        testID={`ingredient-name-${index}`}
                         style={{
                             fontSize: 14,
                             color: COLORS.black
@@ -72,14 +77,16 @@ const RecipeDetailsComponent: FC<RecipeDetailsComponentProps> = (props) => {
     }
 
     return (
-        <View style={styles.container}>
+        <View testID="recipe-main-view" style={styles.container}>
             <ImageBackground
+                testID="recipe-image"
                 source={{ uri: recipe.meal.strMealThumb }}
                 style={styles.backgroundImg}
             >
                 <View style={styles.detailsView}>
                     <View>
                         <Text
+                            testID="recipe-name"
                             style={styles.mealName}
                             ellipsizeMode="tail"
                             numberOfLines={2}
@@ -93,6 +100,7 @@ const RecipeDetailsComponent: FC<RecipeDetailsComponentProps> = (props) => {
                         </Text>
                     </View>
                     <TouchableOpacity
+                        testID="add-to-fav"
                         onPress={() => {
                             addFavorites();
                         }}
@@ -100,6 +108,7 @@ const RecipeDetailsComponent: FC<RecipeDetailsComponentProps> = (props) => {
                         {
                             isFavorite ? (
                                 <Image
+                                    testID="liked-image"
                                     source={Images.like1}
                                     style={[styles.like, {
                                         tintColor: COLORS.app_theme
@@ -108,6 +117,7 @@ const RecipeDetailsComponent: FC<RecipeDetailsComponentProps> = (props) => {
                                 />
                             ) : (
                                 <Image
+                                    testID="not-liked-image"
                                     source={Images.like}
                                     style={[styles.like, {
                                         tintColor: COLORS.white
@@ -126,6 +136,7 @@ const RecipeDetailsComponent: FC<RecipeDetailsComponentProps> = (props) => {
                     }}
                 >
                     <Text
+                        testID="ingredients"
                         style={{
                             fontSize: 14,
                             color: step === 0 ? COLORS.app_theme : COLORS.black,
@@ -152,6 +163,7 @@ const RecipeDetailsComponent: FC<RecipeDetailsComponentProps> = (props) => {
                     }}
                 >
                     <Text
+                        testID="directions"
                         style={{
                             fontSize: 14,
                             color: step === 1 ? COLORS.app_theme : COLORS.black,
@@ -177,6 +189,7 @@ const RecipeDetailsComponent: FC<RecipeDetailsComponentProps> = (props) => {
                 {
                     step === 0 ? (
                         <FlatList
+                            testID="ingredients-list"
                             data={recipe.meal.ingredientsData}
                             renderItem={renderIngredientList}
                             ItemSeparatorComponent={() => {
@@ -192,10 +205,12 @@ const RecipeDetailsComponent: FC<RecipeDetailsComponentProps> = (props) => {
                         />
                     ) : (
                         <ScrollView
+                            testID="directions-list"
                             contentContainerStyle={styles.scrollViewStyle}
                             showsVerticalScrollIndicator={false}
                         >
                             <Text
+                                testID="direction-steps"
                                 style={styles.directions}
                             >
                                 {recipe.meal.strInstructions}

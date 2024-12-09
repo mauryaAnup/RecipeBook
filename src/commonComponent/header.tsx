@@ -11,11 +11,13 @@ const Header: FC = () => {
             justifyContent: "center",
             elevation: 5
         }}>
-            <Text style={{
-                color: COLORS.black,
-                fontSize: 20,
-                fontWeight: 500
-            }}>
+            <Text
+                testID="app-name"
+                style={{
+                    color: COLORS.black,
+                    fontSize: 20,
+                    fontWeight: 500
+                }}>
                 Recipe Book
             </Text>
         </View>

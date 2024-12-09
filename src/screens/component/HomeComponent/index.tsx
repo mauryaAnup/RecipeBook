@@ -18,8 +18,9 @@ const HomeComponent: FC<HomeComponentProps> = (props) => {
     const renderRecipeList = ({ item, index }: any) => {
         return (
             <TouchableOpacity
+                testID={`item-${index}`}
                 style={styles.recipeListContainer}
-                activeOpacity={0.7}
+                activeOpacity={0.5}
                 onPress={() => navigateToRecipeDetails(item)}
             >
                 <View>
@@ -33,6 +34,7 @@ const HomeComponent: FC<HomeComponentProps> = (props) => {
                         {
                             item.isFavorite ? (
                                 <View
+                                    testID={`fav-marked-${index}`}
                                     style={styles.favView}
                                 >
                                     <Image
@@ -48,6 +50,7 @@ const HomeComponent: FC<HomeComponentProps> = (props) => {
 
                 <View style={styles.detailsView}>
                     <Text
+                        testID={`recipe-name-${index}`}
                         style={styles.mealName}
                         ellipsizeMode="tail"
                         numberOfLines={1}
@@ -69,15 +72,17 @@ const HomeComponent: FC<HomeComponentProps> = (props) => {
 
     return (
         <MainView isLoading={isLoading}>
-            <View style={styles.container}>
+            <View testID="home-screen-view" style={styles.container}>
                 <Header />
                 <ScrollView
+                    testID="list-scroll"
                     contentContainerStyle={{
                         paddingBottom: 10
                     }}
                     showsVerticalScrollIndicator={false}
                 >
                     <TouchableOpacity
+                        testID="search-bar"
                         style={styles.searchView}
                         activeOpacity={0.8}
                         onPress={() => {
@@ -85,6 +90,7 @@ const HomeComponent: FC<HomeComponentProps> = (props) => {
                         }}
                     >
                         <Text
+                            testID="search-input"
                             style={styles.searchText}
                         >
                             Search Recipe...
@@ -98,6 +104,7 @@ const HomeComponent: FC<HomeComponentProps> = (props) => {
                         paddingLeft: 4
                     }}>
                         <FlatList
+                            testID="recipe-list"
                             scrollEnabled={false}
                             data={recipeData}
                             renderItem={renderRecipeList}
@@ -106,6 +113,7 @@ const HomeComponent: FC<HomeComponentProps> = (props) => {
                                 paddingBottom: 10
                             }}
                             showsVerticalScrollIndicator={false}
+                            keyExtractor={(item, index) => index.toString()}
                         />
                     </View>
                 </ScrollView>

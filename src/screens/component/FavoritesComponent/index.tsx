@@ -19,11 +19,12 @@ const FavoritesComponent: FC<FavoritesComponentProps> = (props) => {
     const renderRecipeList = ({ item, index }: any) => {
         return (
             <TouchableOpacity
+                testID={`fav-item-${index}`}
                 style={styles.recipeListContainer}
                 activeOpacity={0.7}
                 onPress={() => navigateToRecipeDetails(item)}
             >
-                 <View>
+                <View>
                     <Image
                         source={{ uri: item.strMealThumb }}
                         style={styles.thumbnailImg}
@@ -31,28 +32,27 @@ const FavoritesComponent: FC<FavoritesComponentProps> = (props) => {
                     <View
                         style={styles.favContainer}
                     >
-                        {
-                            item.isFavorite ? (
-                                <TouchableOpacity
-                                    style={styles.favView}
-                                    activeOpacity={0.7}
-                                    onPress={() => {
-                                        removeFavorites(item);
-                                    }}
-                                >
-                                    <Image
-                                        source={Images.like1}
-                                        style={styles.likeImg}
+                        <TouchableOpacity
+                            testID={`remove-fav-${index}`}
+                            style={styles.favView}
+                            activeOpacity={0.7}
+                            onPress={() => {
+                                removeFavorites(item);
+                            }}
+                        >
+                            <Image
+                                testID={`fav-like-image-${index}`}
+                                source={Images.like1}
+                                style={styles.likeImg}
 
-                                    />
-                                </TouchableOpacity>
-                            ) : null
-                        }
+                            />
+                        </TouchableOpacity>
                     </View>
                 </View>
 
                 <View style={styles.detailsView}>
                     <Text
+                        testID={`fav-recipe-name-${index}`}
                         style={styles.mealName}
                         ellipsizeMode="tail"
                         numberOfLines={1}
@@ -76,13 +76,14 @@ const FavoritesComponent: FC<FavoritesComponentProps> = (props) => {
         return (
             <View style={styles.emptyListContainer}>
                 <Image
+                    testID="empty-fav-image"
                     source={Images.like}
                     style={{
                         height: 50,
                         width: 50
                     }}
                 />
-                <Text style={styles.noDataMsg}>
+                <Text testID="no-fav-text" style={styles.noDataMsg}>
                     No Favorites
                 </Text>
             </View>
@@ -91,10 +92,11 @@ const FavoritesComponent: FC<FavoritesComponentProps> = (props) => {
 
     return (
         <MainView isLoading={false}>
-            <View style={styles.container}>
+            <View testID="favorites-screen-view" style={styles.container}>
                 <Header />
                 <View style={styles.flatListView}>
                     <FlatList
+                        testID="fav-list"
                         scrollEnabled={true}
                         data={favoritesData}
                         renderItem={renderRecipeList}
@@ -102,11 +104,7 @@ const FavoritesComponent: FC<FavoritesComponentProps> = (props) => {
                         contentContainerStyle={{
                             paddingBottom: 70
                         }}
-                        ListEmptyComponent={() => {
-                            return (
-                                emptyListView()
-                            )
-                        }}
+                        ListEmptyComponent={emptyListView}
                         showsVerticalScrollIndicator={false}
                     />
                 </View>

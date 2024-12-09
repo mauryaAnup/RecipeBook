@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>jest-stare!</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/diff2html.min.css" rel="stylesheet" type="text/css">
+    <link href="css/jest-stare.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/holder.js"></script>
+    <script src="js/diff2html.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/view.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" id="navbar-title" href="#">jest-stare</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="coverage-link" class="nav-link disabled" href="#">Coverage</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-passoff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-passoff-switch">
+                                <span class="pass off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-failoff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-failoff-switch">
+                                <span class="fail off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-pendingoff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-pendingoff-switch">
+                                <span class="pending off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="onoff-switch mr-sm-2 ml-sm-2">
+                            <input type="checkbox" name="off-switch" class="off-switch-checkbox" id="lab-todooff-switch" checked>
+                            <label class="onoff-switch-label" for="lab-todooff-switch">
+                                <span class="todo off-switch-inner"></span>
+                                <span class="off-switch-switch"></span>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+                <!-- <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" disabled>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" disabled>Search</button>
+                </form> -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+
+        <h1 class="mt-5"></h1>
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-4">
+                <canvas id="test-suites-canvas" width="100" height="100"></canvas>
+                <h2>Test Suites</h2>
+                <div class="list-group">
+                    <p id="test-suites-results" class="list-group-item list-group-item-action">5 passed, 5 total</p>
+                </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <canvas id="tests-canvas" width="100" height="100"></canvas>
+                <h2>Tests</h2>
+                <div class="list-group">
+                    <p id="tests-results" class="list-group-item list-group-item-action">18 passed, 18 total</p>
+                </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4" id="snapshots-group">
+                <canvas id="snapshots-canvas" width="100" height="100"></canvas>
+                <h2>Snapshots</h2>
+                <div class="list-group">
+                    <p id="snapshots-results" class="list-group-item list-group-item-action">0 passed, 0 total</p>
+                </div>
+            </div>
+            <!-- /.col-lg-4 -->
+        </div>
+
+        <div id="loading-info" class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                aria-valuemax="100" style="width: 100%"></div>
+        </div>
+
+        <div class="d-none" id="test-summary"></div>
+        <div class="d-none" id="test-config">{
+  &quot;resultDir&quot;: &quot;e2e&#x2F;test-report&#x2F;&quot;,
+  &quot;reportTitle&quot;: &quot;Detox Test Report&quot;,
+  &quot;reportHeadline&quot;: &quot;React Native Detox Testing&quot;,
+  &quot;coverageLink&quot;: &quot;..&#x2F;coverage&#x2F;lcov-report&#x2F;index.html&quot;,
+  &quot;disableGraphs&quot;: false,
+  &quot;additionalResultsProcessors&quot;: [],
+  &quot;resultHtml&quot;: &quot;index.html&quot;,
+  &quot;resultJson&quot;: &quot;jest-results.json&quot;
+}</div>
+        <div id="accordion">
+            <div class="d-none" id="test-results">{
+  &quot;numFailedTestSuites&quot;: 0,
+  &quot;numFailedTests&quot;: 0,
+  &quot;numPassedTestSuites&quot;: 5,
+  &quot;numPassedTests&quot;: 18,
+  &quot;numPendingTestSuites&quot;: 0,
+  &quot;numPendingTests&quot;: 0,
+  &quot;numRuntimeErrorTestSuites&quot;: 0,
+  &quot;numTodoTests&quot;: 0,
+  &quot;numTotalTestSuites&quot;: 5,
+  &quot;numTotalTests&quot;: 18,
+  &quot;openHandles&quot;: [],
+  &quot;snapshot&quot;: {
+    &quot;added&quot;: 0,
+    &quot;didUpdate&quot;: false,
+    &quot;failure&quot;: false,
+    &quot;filesAdded&quot;: 0,
+    &quot;filesRemoved&quot;: 0,
+    &quot;filesRemovedList&quot;: [],
+    &quot;filesUnmatched&quot;: 0,
+    &quot;filesUpdated&quot;: 0,
+    &quot;matched&quot;: 0,
+    &quot;total&quot;: 0,
+    &quot;unchecked&quot;: 0,
+    &quot;uncheckedKeysByFile&quot;: [],
+    &quot;unmatched&quot;: 0,
+    &quot;updated&quot;: 0
+  },
+  &quot;startTime&quot;: 1733708730878,
+  &quot;success&quot;: false,
+  &quot;testResults&quot;: [
+    {
+      &quot;leaks&quot;: false,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 1,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;openHandles&quot;: [],
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1733708777979,
+        &quot;runtime&quot;: 46950,
+        &quot;slow&quot;: true,
+        &quot;start&quot;: 1733708731029
+      },
+      &quot;skipped&quot;: false,
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;uncheckedKeys&quot;: [],
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0
+      },
+      &quot;testFilePath&quot;: &quot;C:\\Users\\anupm\\Desktop\\RecipeBook\\e2e\\splashScreen.test.js&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Splash Screen&quot;
+          ],
+          &quot;duration&quot;: 14282,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Splash Screen App should open and display Splash Screen and navigate to Home Screen&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;App should open and display Splash Screen and navigate to Home Screen&quot;
+        }
+      ],
+      &quot;failureMessage&quot;: null
+    },
+    {
+      &quot;leaks&quot;: false,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 4,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;openHandles&quot;: [],
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1733708825312,
+        &quot;runtime&quot;: 47237,
+        &quot;slow&quot;: true,
+        &quot;start&quot;: 1733708778075
+      },
+      &quot;skipped&quot;: false,
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;uncheckedKeys&quot;: [],
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0
+      },
+      &quot;testFilePath&quot;: &quot;C:\\Users\\anupm\\Desktop\\RecipeBook\\e2e\\homeScreen.test.js&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Home Screen&quot;
+          ],
+          &quot;duration&quot;: 229,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Home Screen should display header with title &#39;Recipe Book&#39;&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display header with title &#39;Recipe Book&#39;&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Home Screen&quot;
+          ],
+          &quot;duration&quot;: 4115,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Home Screen should display search bar and check the touchability&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display search bar and check the touchability&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Home Screen&quot;
+          ],
+          &quot;duration&quot;: 1796,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Home Screen should display the recipe list and scroll&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display the recipe list and scroll&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Home Screen&quot;
+          ],
+          &quot;duration&quot;: 4043,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Home Screen should display bottom tab and check the Home &amp; Favorites tabs touchability&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display bottom tab and check the Home &amp; Favorites tabs touchability&quot;
+        }
+      ],
+      &quot;failureMessage&quot;: null
+    },
+    {
+      &quot;leaks&quot;: false,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 2,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;openHandles&quot;: [],
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1733708881301,
+        &quot;runtime&quot;: 55892,
+        &quot;slow&quot;: true,
+        &quot;start&quot;: 1733708825409
+      },
+      &quot;skipped&quot;: false,
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;uncheckedKeys&quot;: [],
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0
+      },
+      &quot;testFilePath&quot;: &quot;C:\\Users\\anupm\\Desktop\\RecipeBook\\e2e\\searchScreen.test.js&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Search Screen&quot;
+          ],
+          &quot;duration&quot;: 3938,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Search Screen should type \&quot;000\&quot; and should show \&quot;No Search Data\&quot; message&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should type \&quot;000\&quot; and should show \&quot;No Search Data\&quot; message&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Search Screen&quot;
+          ],
+          &quot;duration&quot;: 12951,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Search Screen should type \&quot;dal\&quot; and should display list of recipes and check touchability&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should type \&quot;dal\&quot; and should display list of recipes and check touchability&quot;
+        }
+      ],
+      &quot;failureMessage&quot;: null
+    },
+    {
+      &quot;leaks&quot;: false,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 5,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;openHandles&quot;: [],
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1733708942443,
+        &quot;runtime&quot;: 61062,
+        &quot;slow&quot;: true,
+        &quot;start&quot;: 1733708881381
+      },
+      &quot;skipped&quot;: false,
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;uncheckedKeys&quot;: [],
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0
+      },
+      &quot;testFilePath&quot;: &quot;C:\\Users\\anupm\\Desktop\\RecipeBook\\e2e\\recipeDetailsScreen.test.js&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Recipe Details&quot;
+          ],
+          &quot;duration&quot;: 4728,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Recipe Details should open any recipe from the list on home screen when pressed&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should open any recipe from the list on home screen when pressed&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Recipe Details&quot;
+          ],
+          &quot;duration&quot;: 939,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Recipe Details should render all the component (Recipe Image, Name, Fav icon, Ingredients, Directions)&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should render all the component (Recipe Image, Name, Fav icon, Ingredients, Directions)&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Recipe Details&quot;
+          ],
+          &quot;duration&quot;: 8629,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Recipe Details should scroll the ingredients list and direction list&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should scroll the ingredients list and direction list&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Recipe Details&quot;
+          ],
+          &quot;duration&quot;: 3787,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Recipe Details should change the Like icon when clicked and home screen should show like icon for that recipe&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should change the Like icon when clicked and home screen should show like icon for that recipe&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Recipe Details&quot;
+          ],
+          &quot;duration&quot;: 5585,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Recipe Details should change the Like icon when clicked again and home screen should not show like icon for that recipe&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should change the Like icon when clicked again and home screen should not show like icon for that recipe&quot;
+        }
+      ],
+      &quot;failureMessage&quot;: null
+    },
+    {
+      &quot;leaks&quot;: false,
+      &quot;numFailingTests&quot;: 0,
+      &quot;numPassingTests&quot;: 6,
+      &quot;numPendingTests&quot;: 0,
+      &quot;numTodoTests&quot;: 0,
+      &quot;openHandles&quot;: [],
+      &quot;perfStats&quot;: {
+        &quot;end&quot;: 1733709034180,
+        &quot;runtime&quot;: 91666,
+        &quot;slow&quot;: true,
+        &quot;start&quot;: 1733708942514
+      },
+      &quot;skipped&quot;: false,
+      &quot;snapshot&quot;: {
+        &quot;added&quot;: 0,
+        &quot;fileDeleted&quot;: false,
+        &quot;matched&quot;: 0,
+        &quot;unchecked&quot;: 0,
+        &quot;uncheckedKeys&quot;: [],
+        &quot;unmatched&quot;: 0,
+        &quot;updated&quot;: 0
+      },
+      &quot;testFilePath&quot;: &quot;C:\\Users\\anupm\\Desktop\\RecipeBook\\e2e\\favoritesScreen.test.js&quot;,
+      &quot;testResults&quot;: [
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Favorites Screen&quot;
+          ],
+          &quot;duration&quot;: 2176,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Favorites Screen Favorites screen should be empty when app first imstalled and display &#39;No Favorites&#39; message&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;Favorites screen should be empty when app first imstalled and display &#39;No Favorites&#39; message&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Favorites Screen&quot;
+          ],
+          &quot;duration&quot;: 9975,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Favorites Screen should add recipe to favorites from recipe details screen when like button is pressed&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should add recipe to favorites from recipe details screen when like button is pressed&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Favorites Screen&quot;
+          ],
+          &quot;duration&quot;: 3481,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Favorites Screen should remove recipe from favorites when like button is pressed from recipe details screen&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should remove recipe from favorites when like button is pressed from recipe details screen&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Favorites Screen&quot;
+          ],
+          &quot;duration&quot;: 20944,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Favorites Screen should add recipe to favorites from search screen&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should add recipe to favorites from search screen&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Favorites Screen&quot;
+          ],
+          &quot;duration&quot;: 16432,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Favorites Screen favorites recipe should be persistent when app is killed or reloaded&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;favorites recipe should be persistent when app is killed or reloaded&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Favorites Screen&quot;
+          ],
+          &quot;duration&quot;: 1021,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Favorites Screen favorites recipe should remove when clicked on like icon from the favorites tab itself&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;favorites recipe should remove when clicked on like icon from the favorites tab itself&quot;
+        }
+      ],
+      &quot;failureMessage&quot;: null
+    }
+  ],
+  &quot;wasInterrupted&quot;: false
+}</div>
+        </div>
+        <div class="d-none" id="test-global-config">{
+  &quot;bail&quot;: 0,
+  &quot;changedFilesWithAncestor&quot;: false,
+  &quot;ci&quot;: false,
+  &quot;collectCoverage&quot;: false,
+  &quot;collectCoverageFrom&quot;: [],
+  &quot;coverageDirectory&quot;: &quot;C:\\Users\\anupm\\Desktop\\RecipeBook\\coverage&quot;,
+  &quot;coverageProvider&quot;: &quot;babel&quot;,
+  &quot;coverageReporters&quot;: [
+    &quot;json&quot;,
+    &quot;text&quot;,
+    &quot;lcov&quot;,
+    &quot;clover&quot;
+  ],
+  &quot;detectLeaks&quot;: false,
+  &quot;detectOpenHandles&quot;: false,
+  &quot;errorOnDeprecated&quot;: false,
+  &quot;expand&quot;: false,
+  &quot;findRelatedTests&quot;: false,
+  &quot;forceExit&quot;: false,
+  &quot;globalSetup&quot;: &quot;C:\\Users\\anupm\\Desktop\\RecipeBook\\node_modules\\detox\\runners\\jest\\globalSetup.js&quot;,
+  &quot;globalTeardown&quot;: &quot;C:\\Users\\anupm\\Desktop\\RecipeBook\\node_modules\\detox\\runners\\jest\\globalTeardown.js&quot;,
+  &quot;json&quot;: false,
+  &quot;lastCommit&quot;: false,
+  &quot;listTests&quot;: false,
+  &quot;logHeapUsage&quot;: false,
+  &quot;maxConcurrency&quot;: 5,
+  &quot;maxWorkers&quot;: 1,
+  &quot;noStackTrace&quot;: false,
+  &quot;nonFlagArgs&quot;: [],
+  &quot;notify&quot;: false,
+  &quot;notifyMode&quot;: &quot;failure-change&quot;,
+  &quot;onlyChanged&quot;: false,
+  &quot;onlyFailures&quot;: false,
+  &quot;openHandlesTimeout&quot;: 1000,
+  &quot;passWithNoTests&quot;: false,
+  &quot;projects&quot;: [],
+  &quot;reporters&quot;: [
+    [
+      &quot;C:\\Users\\anupm\\Desktop\\RecipeBook\\node_modules\\detox\\runners\\jest\\reporter.js&quot;,
+      {}
+    ],
+    [
+      &quot;C:\\Users\\anupm\\Desktop\\RecipeBook\\node_modules\\jest-stare\\lib\\index.js&quot;,
+      {
+        &quot;resultDir&quot;: &quot;e2e&#x2F;test-report&#x2F;&quot;,
+        &quot;reportTitle&quot;: &quot;Detox Test Report&quot;,
+        &quot;reportHeadline&quot;: &quot;React Native Detox Testing&quot;,
+        &quot;coverageLink&quot;: &quot;..&#x2F;coverage&#x2F;lcov-report&#x2F;index.html&quot;,
+        &quot;disableGraphs&quot;: false,
+        &quot;additionalResultsProcessors&quot;: [],
+        &quot;resultHtml&quot;: &quot;index.html&quot;,
+        &quot;resultJson&quot;: &quot;jest-results.json&quot;
+      }
+    ]
+  ],
+  &quot;rootDir&quot;: &quot;C:\\Users\\anupm\\Desktop\\RecipeBook&quot;,
+  &quot;runTestsByPath&quot;: false,
+  &quot;seed&quot;: -1078827966,
+  &quot;skipFilter&quot;: false,
+  &quot;snapshotFormat&quot;: {
+    &quot;escapeString&quot;: false,
+    &quot;printBasicPrototype&quot;: false
+  },
+  &quot;testFailureExitCode&quot;: 1,
+  &quot;testPathPattern&quot;: &quot;&quot;,
+  &quot;testSequencer&quot;: &quot;C:\\Users\\anupm\\Desktop\\RecipeBook\\e2e\\mySequence.js&quot;,
+  &quot;testTimeout&quot;: 120000,
+  &quot;updateSnapshot&quot;: &quot;new&quot;,
+  &quot;useStderr&quot;: false,
+  &quot;verbose&quot;: true,
+  &quot;watch&quot;: false,
+  &quot;watchAll&quot;: false,
+  &quot;watchman&quot;: true,
+  &quot;workerThreads&quot;: false
+}</div>
+
+    </main>
+    <hr>
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">jest-stare 2022</span>
+        </div>
+    </footer>
+</body>
+
+</html>
+

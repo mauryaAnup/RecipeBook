@@ -11,6 +11,7 @@ const Tab = createMaterialBottomTabNavigator();
 function MyTabs() {
     return (
         <Tab.Navigator
+            testID='bottom-tabs'
             barStyle={{
                 height: 68,
                 backgroundColor: COLORS.white_shade1,
@@ -23,8 +24,10 @@ function MyTabs() {
                 component={HomeContainer}
                 options={{
                     title: "Home",
-                    tabBarIcon: (({color}) => (
+                    tabBarButtonTestID: "home-button",
+                    tabBarIcon: (({ color }) => (
                         <Image
+                            testID='tab-home-icon'
                             source={Images.home}
                             style={{
                                 height: 25,
@@ -32,7 +35,7 @@ function MyTabs() {
                                 tintColor: color
                             }}
                         />
-                    ))  
+                    ))
                 }}
             />
             <Tab.Screen
@@ -40,8 +43,10 @@ function MyTabs() {
                 component={FavoritesContainer}
                 options={{
                     title: "Favorites",
-                    tabBarIcon: (({color}) => (
+                    tabBarButtonTestID: "fav-button",
+                    tabBarIcon: (({ color, focused }) => (
                         <Image
+                            testID='tab-fav-icon'
                             source={Images.like}
                             style={{
                                 height: 25,
@@ -49,7 +54,7 @@ function MyTabs() {
                                 tintColor: color
                             }}
                         />
-                    )) 
+                    ))
                 }}
             />
         </Tab.Navigator>

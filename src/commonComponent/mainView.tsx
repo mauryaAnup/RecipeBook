@@ -35,12 +35,14 @@ const MainView: FC<MianViewProps> = (props: MianViewProps) => {
                 transparent={true}
                 visible={isLoading}
             >
-                <View style={{
-                    flex: 1,
-                    backgroundColor: 'rgba(0,0,0,0.5)',
-                    alignItems: "center",
-                    justifyContent: "center"
-                }}>
+                <View
+                    testID="loading-modal"
+                    style={{
+                        flex: 1,
+                        backgroundColor: 'rgba(0,0,0,0.5)',
+                        alignItems: "center",
+                        justifyContent: "center"
+                    }}>
                     <View style={{
                         backgroundColor: COLORS.white,
                         alignItems: "center",
@@ -62,15 +64,17 @@ const MainView: FC<MianViewProps> = (props: MianViewProps) => {
             </Modal>
 
             <Modal
+                testID="no-internet-modal"
                 transparent={true}
                 visible={!isConnected}
             >
-                <View style={{
-                    flex: 1,
-                    backgroundColor: 'rgba(0,0,0,0.5)',
-                    alignItems: "center",
-                    justifyContent: "center"
-                }}>
+                <View
+                    style={{
+                        flex: 1,
+                        backgroundColor: 'rgba(0,0,0,0.5)',
+                        alignItems: "center",
+                        justifyContent: "center"
+                    }}>
                     <View style={{
                         backgroundColor: COLORS.white,
                         alignItems: "center",
@@ -102,7 +106,6 @@ const MainView: FC<MianViewProps> = (props: MianViewProps) => {
                     </View>
                 </View>
             </Modal>
-
             {
                 children
             }

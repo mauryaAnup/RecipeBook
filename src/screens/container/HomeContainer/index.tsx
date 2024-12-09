@@ -9,7 +9,7 @@ import NetInfo from '@react-native-community/netinfo';
 
 const HomeContainer: FC = (props: any) => {
 
-    const [isLoading, setLoading] = useState<boolean>(false);
+    const [isLoading, setLoading] = useState<boolean>(true);
     const [recipeData, setRecipeData] = useState([]);
     const [isConnected, setConnected] = useState<boolean>(false);
 
@@ -20,7 +20,7 @@ const HomeContainer: FC = (props: any) => {
         const unsubscribe = NetInfo.addEventListener((state) => {
             setConnected(state.isConnected!);
         });
-        
+
         if (isFocused && isConnected) {
             getRecipeData();
         }

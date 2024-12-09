@@ -6,15 +6,17 @@ import styles from "./styles";
 
 const SplashComponent: FC = () => {
     return (
-        <View style={styles.container}>
+        <View testID="splash-screen-view" style={styles.container}>
             <View>
                 <LottieView
+                    testID="splash-animation"
                     source={Lottie.splash}
                     autoPlay
                     loop
                     style={styles.lottieStyle}
                 />
                 <Text
+                    testID="app-name"
                     style={styles.appName}
                 >
                     Recipe App

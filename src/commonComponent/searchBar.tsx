@@ -7,7 +7,7 @@ type SearchBarProps = {
     setText?: any
 }
 const SearchBar: FC<SearchBarProps> = (props) => {
-   
+
     return (
         <View
             style={{
@@ -18,16 +18,16 @@ const SearchBar: FC<SearchBarProps> = (props) => {
                 paddingHorizontal: 12,
                 elevation: 2,
                 justifyContent: "center",
-
             }}
         >
             <TextInput
+                testID="search-input"
                 value={props.text}
                 placeholder="Search Recipe..."
                 placeholderTextColor={COLORS.gray_shade1}
                 autoFocus
                 onChangeText={(text) => {
-                    props.setText(text);
+                    props.setText(text.trimStart());
                 }}
                 style={{
                     backgroundColor: COLORS.white,

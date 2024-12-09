@@ -36,7 +36,8 @@ const NavigationRouter: FC = () => {
                     component={RecipeDetailsContainer}
                     options={{
                         headerTransparent: true,
-                        title: ""
+                        title: "",
+                        headerTintColor: 'white'
                     }}
                 />
                 <Stact.Screen

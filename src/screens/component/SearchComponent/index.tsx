@@ -21,6 +21,7 @@ const SearchComponent: FC<SearchComponentProps> = (props: any) => {
     const renderSearchList = ({ item, index }: any) => {
         return (
             <TouchableOpacity
+                testID={`recipe-${index}`}
                 style={styles.searchListContainer}
                 activeOpacity={0.7}
                 onPress={() => {
@@ -40,6 +41,7 @@ const SearchComponent: FC<SearchComponentProps> = (props: any) => {
                     style={styles.mealDetailsView}
                 >
                     <Text
+                        testID={`recipe-name-${index}`}
                         style={styles.mealName}
                     >
                         {item.strMeal}
@@ -57,7 +59,7 @@ const SearchComponent: FC<SearchComponentProps> = (props: any) => {
     const emptyListView = () => {
         return (
             <View style={styles.emptyListContainer}>
-                <Text style={styles.noDataTxt}>
+                <Text testID="no-data" style={styles.noDataTxt}>
                     No Search Data
                 </Text>
             </View>
@@ -67,7 +69,7 @@ const SearchComponent: FC<SearchComponentProps> = (props: any) => {
     const laodingView = () => {
         return (
             <View style={styles.loaderContainer}>
-                <Text style={styles.loadingTxt}>
+                <Text testID="loading" style={styles.loadingTxt}>
                     Loading...
                 </Text>
             </View>
@@ -77,10 +79,9 @@ const SearchComponent: FC<SearchComponentProps> = (props: any) => {
     return (
         <MainView isLoading={false}>
             <View style={styles.container}>
-                <View
-                    style={styles.header}
-                >
+                <View style={styles.header}>
                     <TouchableOpacity
+                        testID="back-button"
                         style={styles.backBtnView}
                         onPress={() => {
                             navigation.goBack()
@@ -107,6 +108,7 @@ const SearchComponent: FC<SearchComponentProps> = (props: any) => {
 
                 <View style={styles.flatListView}>
                     <FlatList
+                        testID="searched-item-list"
                         scrollEnabled
                         data={isLoading || searchRecipe === "" ? [] : recipeData}
                         renderItem={renderSearchList}

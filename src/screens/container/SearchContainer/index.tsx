@@ -1,7 +1,8 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import SearchComponent from "../../component/SearchComponent";
 import Service from "../../../service/service";
 import { ToastAndroid } from "react-native";
+import Helper from "../../../utils/helper";
 
 const SearchContainer: FC = (props: any) => {
 
@@ -9,15 +10,11 @@ const SearchContainer: FC = (props: any) => {
     const [searchRecipe, setSearchRecipe] = useState<string>("");
     const [recipeData, setRecipeData] = useState([]);
 
-    useEffect(() => {
-        searchRecipe !== "" ? searchRecipeByName() : null
-    }, [searchRecipe])
-
-    const searchRecipeByName = () => {
-        console.log("inside", searchRecipe);
+    const searchRecipeByName = (query: string) => {
+        console.log("inside", query);
 
         setLoading(true);
-        Service.GET(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchRecipe}`, "")
+        Service.GET(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`, "")
             .then((res: any) => {
                 if (res.status === 200) {
                     let updatedMeals = [];
@@ -51,11 +48,22 @@ const SearchContainer: FC = (props: any) => {
             });
     }
 
+    const debouncedSearch = useCallback(Helper.debounce((query: string) => {
+        if (query.trim() !== "") {
+            searchRecipeByName(query);
+        }
+    }, 100), []);
+
+    const handleSearchChange = (val: string) => {
+        setSearchRecipe(val);
+        debouncedSearch(val);
+    };
+
     return (
         <SearchComponent
             navigation={props.navigation}
             searchRecipe={searchRecipe}
-            setSearchRecipe={(val: string) => setSearchRecipe(val)}
+            setSearchRecipe={handleSearchChange}
             recipeData={recipeData}
             isLoading={isLoading}
         />

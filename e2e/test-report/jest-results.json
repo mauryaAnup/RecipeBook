@@ -1,0 +1,444 @@
+{
+  "numFailedTestSuites": 0,
+  "numFailedTests": 0,
+  "numPassedTestSuites": 5,
+  "numPassedTests": 18,
+  "numPendingTestSuites": 0,
+  "numPendingTests": 0,
+  "numRuntimeErrorTestSuites": 0,
+  "numTodoTests": 0,
+  "numTotalTestSuites": 5,
+  "numTotalTests": 18,
+  "openHandles": [],
+  "snapshot": {
+    "added": 0,
+    "didUpdate": false,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0
+  },
+  "startTime": 1733708730878,
+  "success": false,
+  "testResults": [
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 1,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1733708777979,
+        "runtime": 46950,
+        "slow": true,
+        "start": 1733708731029
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "C:\\Users\\anupm\\Desktop\\RecipeBook\\e2e\\splashScreen.test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Splash Screen"
+          ],
+          "duration": 14282,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Splash Screen App should open and display Splash Screen and navigate to Home Screen",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "App should open and display Splash Screen and navigate to Home Screen"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 4,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1733708825312,
+        "runtime": 47237,
+        "slow": true,
+        "start": 1733708778075
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "C:\\Users\\anupm\\Desktop\\RecipeBook\\e2e\\homeScreen.test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Home Screen"
+          ],
+          "duration": 229,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Home Screen should display header with title 'Recipe Book'",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should display header with title 'Recipe Book'"
+        },
+        {
+          "ancestorTitles": [
+            "Home Screen"
+          ],
+          "duration": 4115,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Home Screen should display search bar and check the touchability",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should display search bar and check the touchability"
+        },
+        {
+          "ancestorTitles": [
+            "Home Screen"
+          ],
+          "duration": 1796,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Home Screen should display the recipe list and scroll",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should display the recipe list and scroll"
+        },
+        {
+          "ancestorTitles": [
+            "Home Screen"
+          ],
+          "duration": 4043,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Home Screen should display bottom tab and check the Home & Favorites tabs touchability",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should display bottom tab and check the Home & Favorites tabs touchability"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 2,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1733708881301,
+        "runtime": 55892,
+        "slow": true,
+        "start": 1733708825409
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "C:\\Users\\anupm\\Desktop\\RecipeBook\\e2e\\searchScreen.test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Search Screen"
+          ],
+          "duration": 3938,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Search Screen should type \"000\" and should show \"No Search Data\" message",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should type \"000\" and should show \"No Search Data\" message"
+        },
+        {
+          "ancestorTitles": [
+            "Search Screen"
+          ],
+          "duration": 12951,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Search Screen should type \"dal\" and should display list of recipes and check touchability",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should type \"dal\" and should display list of recipes and check touchability"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 5,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1733708942443,
+        "runtime": 61062,
+        "slow": true,
+        "start": 1733708881381
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "C:\\Users\\anupm\\Desktop\\RecipeBook\\e2e\\recipeDetailsScreen.test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Recipe Details"
+          ],
+          "duration": 4728,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Recipe Details should open any recipe from the list on home screen when pressed",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should open any recipe from the list on home screen when pressed"
+        },
+        {
+          "ancestorTitles": [
+            "Recipe Details"
+          ],
+          "duration": 939,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Recipe Details should render all the component (Recipe Image, Name, Fav icon, Ingredients, Directions)",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should render all the component (Recipe Image, Name, Fav icon, Ingredients, Directions)"
+        },
+        {
+          "ancestorTitles": [
+            "Recipe Details"
+          ],
+          "duration": 8629,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Recipe Details should scroll the ingredients list and direction list",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should scroll the ingredients list and direction list"
+        },
+        {
+          "ancestorTitles": [
+            "Recipe Details"
+          ],
+          "duration": 3787,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Recipe Details should change the Like icon when clicked and home screen should show like icon for that recipe",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should change the Like icon when clicked and home screen should show like icon for that recipe"
+        },
+        {
+          "ancestorTitles": [
+            "Recipe Details"
+          ],
+          "duration": 5585,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Recipe Details should change the Like icon when clicked again and home screen should not show like icon for that recipe",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should change the Like icon when clicked again and home screen should not show like icon for that recipe"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 6,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1733709034180,
+        "runtime": 91666,
+        "slow": true,
+        "start": 1733708942514
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "C:\\Users\\anupm\\Desktop\\RecipeBook\\e2e\\favoritesScreen.test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Favorites Screen"
+          ],
+          "duration": 2176,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Favorites Screen Favorites screen should be empty when app first imstalled and display 'No Favorites' message",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "Favorites screen should be empty when app first imstalled and display 'No Favorites' message"
+        },
+        {
+          "ancestorTitles": [
+            "Favorites Screen"
+          ],
+          "duration": 9975,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Favorites Screen should add recipe to favorites from recipe details screen when like button is pressed",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should add recipe to favorites from recipe details screen when like button is pressed"
+        },
+        {
+          "ancestorTitles": [
+            "Favorites Screen"
+          ],
+          "duration": 3481,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Favorites Screen should remove recipe from favorites when like button is pressed from recipe details screen",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should remove recipe from favorites when like button is pressed from recipe details screen"
+        },
+        {
+          "ancestorTitles": [
+            "Favorites Screen"
+          ],
+          "duration": 20944,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Favorites Screen should add recipe to favorites from search screen",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "should add recipe to favorites from search screen"
+        },
+        {
+          "ancestorTitles": [
+            "Favorites Screen"
+          ],
+          "duration": 16432,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Favorites Screen favorites recipe should be persistent when app is killed or reloaded",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "favorites recipe should be persistent when app is killed or reloaded"
+        },
+        {
+          "ancestorTitles": [
+            "Favorites Screen"
+          ],
+          "duration": 1021,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Favorites Screen favorites recipe should remove when clicked on like icon from the favorites tab itself",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "favorites recipe should remove when clicked on like icon from the favorites tab itself"
+        }
+      ],
+      "failureMessage": null
+    }
+  ],
+  "wasInterrupted": false
+}
