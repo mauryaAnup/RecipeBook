@@ -89,7 +89,7 @@
                 <canvas id="test-suites-canvas" width="100" height="100"></canvas>
                 <h2>Test Suites</h2>
                 <div class="list-group">
-                    <p id="test-suites-results" class="list-group-item list-group-item-action">5 passed, 5 total</p>
+                    <p id="test-suites-results" class="list-group-item list-group-item-action">1 passed, 1 total</p>
                 </div>
             </div>
             <!-- /.col-lg-4 -->
@@ -131,13 +131,13 @@
             <div class="d-none" id="test-results">{
   &quot;numFailedTestSuites&quot;: 0,
   &quot;numFailedTests&quot;: 0,
-  &quot;numPassedTestSuites&quot;: 5,
+  &quot;numPassedTestSuites&quot;: 1,
   &quot;numPassedTests&quot;: 18,
   &quot;numPendingTestSuites&quot;: 0,
   &quot;numPendingTests&quot;: 0,
   &quot;numRuntimeErrorTestSuites&quot;: 0,
   &quot;numTodoTests&quot;: 0,
-  &quot;numTotalTestSuites&quot;: 5,
+  &quot;numTotalTestSuites&quot;: 1,
   &quot;numTotalTests&quot;: 18,
   &quot;openHandles&quot;: [],
   &quot;snapshot&quot;: {
@@ -156,21 +156,21 @@
     &quot;unmatched&quot;: 0,
     &quot;updated&quot;: 0
   },
-  &quot;startTime&quot;: 1733708730878,
+  &quot;startTime&quot;: 1733761630454,
   &quot;success&quot;: false,
   &quot;testResults&quot;: [
     {
       &quot;leaks&quot;: false,
       &quot;numFailingTests&quot;: 0,
-      &quot;numPassingTests&quot;: 1,
+      &quot;numPassingTests&quot;: 18,
       &quot;numPendingTests&quot;: 0,
       &quot;numTodoTests&quot;: 0,
       &quot;openHandles&quot;: [],
       &quot;perfStats&quot;: {
-        &quot;end&quot;: 1733708777979,
-        &quot;runtime&quot;: 46950,
+        &quot;end&quot;: 1733761822875,
+        &quot;runtime&quot;: 192188,
         &quot;slow&quot;: true,
-        &quot;start&quot;: 1733708731029
+        &quot;start&quot;: 1733761630687
       },
       &quot;skipped&quot;: false,
       &quot;snapshot&quot;: {
@@ -182,13 +182,13 @@
         &quot;unmatched&quot;: 0,
         &quot;updated&quot;: 0
       },
-      &quot;testFilePath&quot;: &quot;C:\\Users\\anupm\\Desktop\\RecipeBook\\e2e\\splashScreen.test.js&quot;,
+      &quot;testFilePath&quot;: &quot;C:\\Users\\anupm\\Desktop\\RecipeBook\\e2e\\single.test.js&quot;,
       &quot;testResults&quot;: [
         {
           &quot;ancestorTitles&quot;: [
             &quot;Splash Screen&quot;
           ],
-          &quot;duration&quot;: 14282,
+          &quot;duration&quot;: 8387,
           &quot;failureDetails&quot;: [],
           &quot;failureMessages&quot;: [],
           &quot;fullName&quot;: &quot;Splash Screen App should open and display Splash Screen and navigate to Home Screen&quot;,
@@ -198,40 +198,12 @@
           &quot;retryReasons&quot;: [],
           &quot;status&quot;: &quot;passed&quot;,
           &quot;title&quot;: &quot;App should open and display Splash Screen and navigate to Home Screen&quot;
-        }
-      ],
-      &quot;failureMessage&quot;: null
-    },
-    {
-      &quot;leaks&quot;: false,
-      &quot;numFailingTests&quot;: 0,
-      &quot;numPassingTests&quot;: 4,
-      &quot;numPendingTests&quot;: 0,
-      &quot;numTodoTests&quot;: 0,
-      &quot;openHandles&quot;: [],
-      &quot;perfStats&quot;: {
-        &quot;end&quot;: 1733708825312,
-        &quot;runtime&quot;: 47237,
-        &quot;slow&quot;: true,
-        &quot;start&quot;: 1733708778075
-      },
-      &quot;skipped&quot;: false,
-      &quot;snapshot&quot;: {
-        &quot;added&quot;: 0,
-        &quot;fileDeleted&quot;: false,
-        &quot;matched&quot;: 0,
-        &quot;unchecked&quot;: 0,
-        &quot;uncheckedKeys&quot;: [],
-        &quot;unmatched&quot;: 0,
-        &quot;updated&quot;: 0
-      },
-      &quot;testFilePath&quot;: &quot;C:\\Users\\anupm\\Desktop\\RecipeBook\\e2e\\homeScreen.test.js&quot;,
-      &quot;testResults&quot;: [
+        },
         {
           &quot;ancestorTitles&quot;: [
             &quot;Home Screen&quot;
           ],
-          &quot;duration&quot;: 229,
+          &quot;duration&quot;: 627,
           &quot;failureDetails&quot;: [],
           &quot;failureMessages&quot;: [],
           &quot;fullName&quot;: &quot;Home Screen should display header with title &#39;Recipe Book&#39;&quot;,
@@ -246,7 +218,22 @@
           &quot;ancestorTitles&quot;: [
             &quot;Home Screen&quot;
           ],
-          &quot;duration&quot;: 4115,
+          &quot;duration&quot;: 9382,
+          &quot;failureDetails&quot;: [],
+          &quot;failureMessages&quot;: [],
+          &quot;fullName&quot;: &quot;Home Screen should display the recipe list and perform scroll&quot;,
+          &quot;invocations&quot;: 1,
+          &quot;location&quot;: null,
+          &quot;numPassingAsserts&quot;: 0,
+          &quot;retryReasons&quot;: [],
+          &quot;status&quot;: &quot;passed&quot;,
+          &quot;title&quot;: &quot;should display the recipe list and perform scroll&quot;
+        },
+        {
+          &quot;ancestorTitles&quot;: [
+            &quot;Home Screen&quot;
+          ],
+          &quot;duration&quot;: 3190,
           &quot;failureDetails&quot;: [],
           &quot;failureMessages&quot;: [],
           &quot;fullName&quot;: &quot;Home Screen should display search bar and check the touchability&quot;,
@@ -261,22 +248,7 @@
           &quot;ancestorTitles&quot;: [
             &quot;Home Screen&quot;
           ],
-          &quot;duration&quot;: 1796,
-          &quot;failureDetails&quot;: [],
-          &quot;failureMessages&quot;: [],
-          &quot;fullName&quot;: &quot;Home Screen should display the recipe list and scroll&quot;,
-          &quot;invocations&quot;: 1,
-          &quot;location&quot;: null,
-          &quot;numPassingAsserts&quot;: 0,
-          &quot;retryReasons&quot;: [],
-          &quot;status&quot;: &quot;passed&quot;,
-          &quot;title&quot;: &quot;should display the recipe list and scroll&quot;
-        },
-        {
-          &quot;ancestorTitles&quot;: [
-            &quot;Home Screen&quot;
-          ],
-          &quot;duration&quot;: 4043,
+          &quot;duration&quot;: 8280,
           &quot;failureDetails&quot;: [],
           &quot;failureMessages&quot;: [],
           &quot;fullName&quot;: &quot;Home Screen should display bottom tab and check the Home &amp; Favorites tabs touchability&quot;,
@@ -286,40 +258,12 @@
           &quot;retryReasons&quot;: [],
           &quot;status&quot;: &quot;passed&quot;,
           &quot;title&quot;: &quot;should display bottom tab and check the Home &amp; Favorites tabs touchability&quot;
-        }
-      ],
-      &quot;failureMessage&quot;: null
-    },
-    {
-      &quot;leaks&quot;: false,
-      &quot;numFailingTests&quot;: 0,
-      &quot;numPassingTests&quot;: 2,
-      &quot;numPendingTests&quot;: 0,
-      &quot;numTodoTests&quot;: 0,
-      &quot;openHandles&quot;: [],
-      &quot;perfStats&quot;: {
-        &quot;end&quot;: 1733708881301,
-        &quot;runtime&quot;: 55892,
-        &quot;slow&quot;: true,
-        &quot;start&quot;: 1733708825409
-      },
-      &quot;skipped&quot;: false,
-      &quot;snapshot&quot;: {
-        &quot;added&quot;: 0,
-        &quot;fileDeleted&quot;: false,
-        &quot;matched&quot;: 0,
-        &quot;unchecked&quot;: 0,
-        &quot;uncheckedKeys&quot;: [],
-        &quot;unmatched&quot;: 0,
-        &quot;updated&quot;: 0
-      },
-      &quot;testFilePath&quot;: &quot;C:\\Users\\anupm\\Desktop\\RecipeBook\\e2e\\searchScreen.test.js&quot;,
-      &quot;testResults&quot;: [
+        },
         {
           &quot;ancestorTitles&quot;: [
             &quot;Search Screen&quot;
           ],
-          &quot;duration&quot;: 3938,
+          &quot;duration&quot;: 4074,
           &quot;failureDetails&quot;: [],
           &quot;failureMessages&quot;: [],
           &quot;fullName&quot;: &quot;Search Screen should type \&quot;000\&quot; and should show \&quot;No Search Data\&quot; message&quot;,
@@ -334,7 +278,7 @@
           &quot;ancestorTitles&quot;: [
             &quot;Search Screen&quot;
           ],
-          &quot;duration&quot;: 12951,
+          &quot;duration&quot;: 19163,
           &quot;failureDetails&quot;: [],
           &quot;failureMessages&quot;: [],
           &quot;fullName&quot;: &quot;Search Screen should type \&quot;dal\&quot; and should display list of recipes and check touchability&quot;,
@@ -344,40 +288,12 @@
           &quot;retryReasons&quot;: [],
           &quot;status&quot;: &quot;passed&quot;,
           &quot;title&quot;: &quot;should type \&quot;dal\&quot; and should display list of recipes and check touchability&quot;
-        }
-      ],
-      &quot;failureMessage&quot;: null
-    },
-    {
-      &quot;leaks&quot;: false,
-      &quot;numFailingTests&quot;: 0,
-      &quot;numPassingTests&quot;: 5,
-      &quot;numPendingTests&quot;: 0,
-      &quot;numTodoTests&quot;: 0,
-      &quot;openHandles&quot;: [],
-      &quot;perfStats&quot;: {
-        &quot;end&quot;: 1733708942443,
-        &quot;runtime&quot;: 61062,
-        &quot;slow&quot;: true,
-        &quot;start&quot;: 1733708881381
-      },
-      &quot;skipped&quot;: false,
-      &quot;snapshot&quot;: {
-        &quot;added&quot;: 0,
-        &quot;fileDeleted&quot;: false,
-        &quot;matched&quot;: 0,
-        &quot;unchecked&quot;: 0,
-        &quot;uncheckedKeys&quot;: [],
-        &quot;unmatched&quot;: 0,
-        &quot;updated&quot;: 0
-      },
-      &quot;testFilePath&quot;: &quot;C:\\Users\\anupm\\Desktop\\RecipeBook\\e2e\\recipeDetailsScreen.test.js&quot;,
-      &quot;testResults&quot;: [
+        },
         {
           &quot;ancestorTitles&quot;: [
             &quot;Recipe Details&quot;
           ],
-          &quot;duration&quot;: 4728,
+          &quot;duration&quot;: 4465,
           &quot;failureDetails&quot;: [],
           &quot;failureMessages&quot;: [],
           &quot;fullName&quot;: &quot;Recipe Details should open any recipe from the list on home screen when pressed&quot;,
@@ -392,7 +308,7 @@
           &quot;ancestorTitles&quot;: [
             &quot;Recipe Details&quot;
           ],
-          &quot;duration&quot;: 939,
+          &quot;duration&quot;: 848,
           &quot;failureDetails&quot;: [],
           &quot;failureMessages&quot;: [],
           &quot;fullName&quot;: &quot;Recipe Details should render all the component (Recipe Image, Name, Fav icon, Ingredients, Directions)&quot;,
@@ -407,7 +323,7 @@
           &quot;ancestorTitles&quot;: [
             &quot;Recipe Details&quot;
           ],
-          &quot;duration&quot;: 8629,
+          &quot;duration&quot;: 8849,
           &quot;failureDetails&quot;: [],
           &quot;failureMessages&quot;: [],
           &quot;fullName&quot;: &quot;Recipe Details should scroll the ingredients list and direction list&quot;,
@@ -422,7 +338,7 @@
           &quot;ancestorTitles&quot;: [
             &quot;Recipe Details&quot;
           ],
-          &quot;duration&quot;: 3787,
+          &quot;duration&quot;: 10081,
           &quot;failureDetails&quot;: [],
           &quot;failureMessages&quot;: [],
           &quot;fullName&quot;: &quot;Recipe Details should change the Like icon when clicked and home screen should show like icon for that recipe&quot;,
@@ -437,7 +353,7 @@
           &quot;ancestorTitles&quot;: [
             &quot;Recipe Details&quot;
           ],
-          &quot;duration&quot;: 5585,
+          &quot;duration&quot;: 7713,
           &quot;failureDetails&quot;: [],
           &quot;failureMessages&quot;: [],
           &quot;fullName&quot;: &quot;Recipe Details should change the Like icon when clicked again and home screen should not show like icon for that recipe&quot;,
@@ -447,40 +363,12 @@
           &quot;retryReasons&quot;: [],
           &quot;status&quot;: &quot;passed&quot;,
           &quot;title&quot;: &quot;should change the Like icon when clicked again and home screen should not show like icon for that recipe&quot;
-        }
-      ],
-      &quot;failureMessage&quot;: null
-    },
-    {
-      &quot;leaks&quot;: false,
-      &quot;numFailingTests&quot;: 0,
-      &quot;numPassingTests&quot;: 6,
-      &quot;numPendingTests&quot;: 0,
-      &quot;numTodoTests&quot;: 0,
-      &quot;openHandles&quot;: [],
-      &quot;perfStats&quot;: {
-        &quot;end&quot;: 1733709034180,
-        &quot;runtime&quot;: 91666,
-        &quot;slow&quot;: true,
-        &quot;start&quot;: 1733708942514
-      },
-      &quot;skipped&quot;: false,
-      &quot;snapshot&quot;: {
-        &quot;added&quot;: 0,
-        &quot;fileDeleted&quot;: false,
-        &quot;matched&quot;: 0,
-        &quot;unchecked&quot;: 0,
-        &quot;uncheckedKeys&quot;: [],
-        &quot;unmatched&quot;: 0,
-        &quot;updated&quot;: 0
-      },
-      &quot;testFilePath&quot;: &quot;C:\\Users\\anupm\\Desktop\\RecipeBook\\e2e\\favoritesScreen.test.js&quot;,
-      &quot;testResults&quot;: [
+        },
         {
           &quot;ancestorTitles&quot;: [
             &quot;Favorites Screen&quot;
           ],
-          &quot;duration&quot;: 2176,
+          &quot;duration&quot;: 2017,
           &quot;failureDetails&quot;: [],
           &quot;failureMessages&quot;: [],
           &quot;fullName&quot;: &quot;Favorites Screen Favorites screen should be empty when app first imstalled and display &#39;No Favorites&#39; message&quot;,
@@ -495,7 +383,7 @@
           &quot;ancestorTitles&quot;: [
             &quot;Favorites Screen&quot;
           ],
-          &quot;duration&quot;: 9975,
+          &quot;duration&quot;: 10322,
           &quot;failureDetails&quot;: [],
           &quot;failureMessages&quot;: [],
           &quot;fullName&quot;: &quot;Favorites Screen should add recipe to favorites from recipe details screen when like button is pressed&quot;,
@@ -510,7 +398,7 @@
           &quot;ancestorTitles&quot;: [
             &quot;Favorites Screen&quot;
           ],
-          &quot;duration&quot;: 3481,
+          &quot;duration&quot;: 3335,
           &quot;failureDetails&quot;: [],
           &quot;failureMessages&quot;: [],
           &quot;fullName&quot;: &quot;Favorites Screen should remove recipe from favorites when like button is pressed from recipe details screen&quot;,
@@ -525,7 +413,7 @@
           &quot;ancestorTitles&quot;: [
             &quot;Favorites Screen&quot;
           ],
-          &quot;duration&quot;: 20944,
+          &quot;duration&quot;: 38094,
           &quot;failureDetails&quot;: [],
           &quot;failureMessages&quot;: [],
           &quot;fullName&quot;: &quot;Favorites Screen should add recipe to favorites from search screen&quot;,
@@ -540,7 +428,7 @@
           &quot;ancestorTitles&quot;: [
             &quot;Favorites Screen&quot;
           ],
-          &quot;duration&quot;: 16432,
+          &quot;duration&quot;: 21044,
           &quot;failureDetails&quot;: [],
           &quot;failureMessages&quot;: [],
           &quot;fullName&quot;: &quot;Favorites Screen favorites recipe should be persistent when app is killed or reloaded&quot;,
@@ -555,7 +443,7 @@
           &quot;ancestorTitles&quot;: [
             &quot;Favorites Screen&quot;
           ],
-          &quot;duration&quot;: 1021,
+          &quot;duration&quot;: 1085,
           &quot;failureDetails&quot;: [],
           &quot;failureMessages&quot;: [],
           &quot;fullName&quot;: &quot;Favorites Screen favorites recipe should remove when clicked on like icon from the favorites tab itself&quot;,
@@ -602,7 +490,9 @@
   &quot;maxConcurrency&quot;: 5,
   &quot;maxWorkers&quot;: 1,
   &quot;noStackTrace&quot;: false,
-  &quot;nonFlagArgs&quot;: [],
+  &quot;nonFlagArgs&quot;: [
+    &quot;.\\\\e2e\\\\single.test.js&quot;
+  ],
   &quot;notify&quot;: false,
   &quot;notifyMode&quot;: &quot;failure-change&quot;,
   &quot;onlyChanged&quot;: false,
@@ -631,14 +521,14 @@
   ],
   &quot;rootDir&quot;: &quot;C:\\Users\\anupm\\Desktop\\RecipeBook&quot;,
   &quot;runTestsByPath&quot;: false,
-  &quot;seed&quot;: -1078827966,
+  &quot;seed&quot;: -411895376,
   &quot;skipFilter&quot;: false,
   &quot;snapshotFormat&quot;: {
     &quot;escapeString&quot;: false,
     &quot;printBasicPrototype&quot;: false
   },
   &quot;testFailureExitCode&quot;: 1,
-  &quot;testPathPattern&quot;: &quot;&quot;,
+  &quot;testPathPattern&quot;: &quot;.\\\\e2e\\\\single.test.js&quot;,
   &quot;testSequencer&quot;: &quot;C:\\Users\\anupm\\Desktop\\RecipeBook\\e2e\\mySequence.js&quot;,
   &quot;testTimeout&quot;: 120000,
   &quot;updateSnapshot&quot;: &quot;new&quot;,
